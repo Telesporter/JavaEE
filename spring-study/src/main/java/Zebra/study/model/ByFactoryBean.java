@@ -7,8 +7,8 @@ public class ByFactoryBean implements FactoryBean<User> {
     @Override
     public User getObject() throws Exception {
         User u = new User();
-        u.setUsername("女王陛下");
-        u.setPassword("御弟哥哥");
+        u.setUsername("我是Zebra的factory");
+        u.setPassword("factory的factory");
         return u;
     }
 
