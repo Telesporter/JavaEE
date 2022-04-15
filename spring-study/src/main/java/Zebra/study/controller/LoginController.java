@@ -26,16 +26,16 @@ public class LoginController {
     @Bean
     public User u1(){
         User user = new User();
-        user.setUsername("猴哥");
-        user.setPassword("悟空，快来救我");
+        user.setUsername("我是u1");
+        user.setPassword("u1的u1");
         return user;
     }
 
     @Bean
     public User u2(){
         User user = new User();
-        user.setUsername("唐僧");
-        user.setPassword("师傅，你看我漂亮不");
+        user.setUsername("我是u2");
+        user.setPassword("u2的u2");
         return user;
     }
 
@@ -43,8 +43,8 @@ public class LoginController {
     public User u3(User u2){
         System.out.println(u2);
         User user = new User();
-        user.setUsername("唐僧333");
-        user.setPassword("33333");
+        user.setUsername("我是u3");
+        user.setPassword("u3的u3");
         return user;
     }
 }
