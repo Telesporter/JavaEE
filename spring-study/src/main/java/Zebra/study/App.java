@@ -15,7 +15,7 @@ public class App {
 
         LoginController loginController = (LoginController) context.getBean("loginController");
         System.out.println(loginController);
-        System.out.println(loginController.getUkkkk());
+
 
         //验证loginController依赖注入的loginService是否为容器中的Bean对象
         LoginService loginService = context.getBean(LoginService.class);
@@ -32,8 +32,11 @@ public class App {
         AppConfig appConfig = context.getBean(AppConfig.class);
         System.out.println(appConfig);
 
-        User u = (User) context.getBean("byFactoryBean");
-        System.out.println(u);
+//        User u = (User) context.getBean("byFactoryBean");
+//        System.out.println(u);
+
+        System.out.println(loginController.getU1());
+        System.out.println(loginController.getUkkkk());
 
         //关闭容器
         ((ClassPathXmlApplicationContext) context).close();
