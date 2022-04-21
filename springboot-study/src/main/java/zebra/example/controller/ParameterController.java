@@ -6,6 +6,7 @@ import zebra.example.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -106,5 +107,22 @@ public class ParameterController {
     @GetMapping("/cookie")
     public String cookie(@CookieValue("JSESSIONID") String cookie) {
         return String.format("JSESSIONID: %s", cookie);
+    }
+
+
+    @RequestMapping("/login")
+    public Object login(@RequestBody User user , HttpServletRequest req) {
+        Map<String,Object> map = new HashMap<>();
+        if ("Zebra".equals(user.getUsername()) && "123".equals(user.getPassword())) {
+            HttpSession session = req.getSession();
+            //添加用户身份信息到session
+            session.setAttribute("user", user);
+            map.put("OK", true);
+            map.put("msg", "登录成功");
+        } else {
+            map.put("OK", false);
+            map.put("msg", "用户名密码错误");
+        }
+        return map;
     }
 }
