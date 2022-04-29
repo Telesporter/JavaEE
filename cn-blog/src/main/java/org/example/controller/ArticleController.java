@@ -48,6 +48,7 @@ public class ArticleController {
 
     @PostMapping("/add")
     //请求数据已设置title，content
+    //这里能用session因为这里一定是登录了，一定有session
     public Object add(@RequestBody Article article, HttpSession session){
         User user = (User) session.getAttribute("user");
         article.setUserId(user.getId());
